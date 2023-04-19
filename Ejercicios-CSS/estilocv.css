@@ -1,0 +1,21 @@
+div{
+    border: 2px solid #2379a3;
+    border-radius: 15px;
+    margin: 20px 25px;
+    padding: 18px;
+    background-color: rgba(144, 171, 210, 0.3);
+    box-shadow: 5px 7px #776363;
+}
+#foto{
+    width: 50px;
+    float: left;
+    border-radius: 50%;
+}
+.cuerpoPagina{
+    text-align: center;
+    font-family: 'Roboto Mono', monospace;
+    background: linear-gradient(to right, #3d76b0, #5cb6b6);
+}
+h1, h2, h3{
+    text-shadow: 2px 5px #755d5d;
+}
