@@ -5,7 +5,6 @@
  * @param {number} valor - El valor de los inputs de metros, pulgadas, pies o yardas.
  * @return
  */
-
 function conversorUnidades(id,valor){
     if(isNaN(valor)){
         alert("Se ingreso un valor invalido "+id);
@@ -30,4 +29,23 @@ function conversorUnidades(id,valor){
         document.lasUnidades.unid_pulgada.value= 36*valor;
         document.lasUnidades.unid_pie.value= 3*valor;
     }
+}
+
+
+/**
+ * Conversion de grados sexagesimales a radianes y viceversa.
+ * @method conversorGR
+ * @param {string} id - El id de los inputs de grados o radianes.
+ */
+function conversorGR(id){
+    let grad, rad;
+    if(id=="grados"){
+        grad=document.getElementById("grados").value;
+        rad=(grad*Math.PI)/180;
+    }else if(id=="radianes"){
+        rad=document.getElementById("radianes").value;
+        grad=(rad*180)/Math.PI;
+    }
+    document.getElementById("grados").value=grad;
+    document.getElementById("radianes").value=rad;
 }
