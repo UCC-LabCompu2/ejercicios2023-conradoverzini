@@ -73,3 +73,47 @@ function mostrar_ocultar(valorMO){
         document.getElementById("divMO").style.display='none';
     }
 }
+
+/**
+ * Sumar dos valores ingresados por el usuario
+ * @method calcularSuma
+ */
+function calcularSuma(){
+    let num1, num2;
+    num1=document.getElementsByName("sum_num1")[0].value;
+    num2=document.getElementsByName("sum_num2")[0].value;
+    document.getElementsByName("sum_total")[0].value=Number(num1) + Number(num2);
+}
+
+/**
+ * Restar dos valores ingresados por el usuario
+ * @method calcularResta
+ */
+function calcularResta(){
+    let num1, num2;
+    num1=document.getElementsByName("res_num1")[0].value;
+    num2=document.getElementsByName("res_num2")[0].value;
+    document.getElementsByName("res_total")[0].value=Number(num1) - Number(num2);
+}
+
+/**
+ * Multiplicar dos valores ingresados por el usuario
+ * @method calcularMult
+ */
+function calcularMult(){
+    let num1, num2;
+    num1=document.getElementsByName("mul_num1")[0].value;
+    num2=document.getElementsByName("mul_num2")[0].value;
+    document.getElementsByName("mul_total")[0].value=Number(num1) * Number(num2);
+}
+
+/**
+ * Dividir dos valores ingresados por el usuario
+ * @method calcularDiv
+ */
+function calcularDiv(){
+    let num1, num2;
+    num1=document.getElementsByName("div_num1")[0].value;
+    num2=document.getElementsByName("div_num2")[0].value;
+    document.getElementsByName("div_total")[0].value=Number(num1) / Number(num2);
+}
