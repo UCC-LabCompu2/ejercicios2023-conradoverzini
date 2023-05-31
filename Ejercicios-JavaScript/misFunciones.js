@@ -122,3 +122,29 @@ function calcularDiv(){
     document.getElementsByName("div_total")[0].innerHTML=num1/num2;
 }
 
+/**
+ * Generar URL para enviar datos de primeraWeb a segundaWeb
+ * @method cargarWeb
+ */
+let cargarWeb = () => {
+
+    const distancia = document.getElementById("distancia").value;
+    const unidad = document.getElementsByName("unidades")[0].value;
+    const urlComp = `segundaWeb.html#${distancia}#${unidad}`;
+    window.open(urlComp);
+
+}
+
+/**
+ * Recibir datos en segundaWeb que están en la URL generada por cargarWeb()
+ * @method cargarResultado
+ */
+let cargarResultado = () => {
+    let urlComp= window.location.href.split("/")[5];
+    const distancia = urlComp.split("#")[1];
+    const unidad = urlComp.split("#")[2];
+    document.getElementById("dist").value = `${distancia} ${unidad}`;
+}
+
+
+
