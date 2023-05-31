@@ -147,4 +147,24 @@ let cargarResultado = () => {
 }
 
 
+/**
+ * Guardar datos en localStorage
+ * @method guardarLocalStorage
+ */
+let guardarLocalStorage = () => {
+    const distancia = document.getElementById("distancia").value;
+    const unidad = document.getElementsByName("unidades")[0].value;
+    localStorage.setItem("distanciaLS", distancia);
+    localStorage.setItem("unidadesLS", unidad);
+    window.open("2_web.html");
+}
 
+/**
+ * Cargar datos en localStorage
+ * @method cargarLocalStorage
+ */
+let cargarLocalStorage = () => {
+    const cant = localStorage.getItem("distanciaLS");
+    const un = localStorage.getItem("unidadesLS");
+    document.getElementById("dist").value = `${cant} ${un}`;
+}
