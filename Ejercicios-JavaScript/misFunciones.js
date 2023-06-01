@@ -223,44 +223,53 @@ function limpiarCanvas(){
 let dibujarCuadriculado = () => {
     const canvas = document.getElementById("myCanvas");
     const ctx = canvas.getContext("2d");
+    ctx.font="10pt Verdana";
+    ctx.fillStyle = "black";
 
-    let alturaMax = canvas.height;
-    let anchoMax = canvas.width;
+    const xMax = canvas.width;
+    const yMax = canvas.height;
+    let paso = 20;
+    let ejeX=-15;
+    let ejeY=-25;
+    let despl = 2;
 
-
-    //Dibujar lineas horizontales
-    ctx.beginPath();
-    for(let i=0;i<alturaMax;i+=20){
-        ctx.moveTo(0,i);
-        ctx.lineTo(anchoMax,i);
-        ctx.strokeStyle = "#b4b9c9";
+    //Lineas Horizontales
+    for(let i=0;i<yMax;i+=paso){
+        ctx.beginPath();
+        ctx.moveTo(0, i);
+        ctx.lineTo(xMax, i);
+        ctx.strokeStyle = "#b9a8a8"
         ctx.stroke();
+        ctx.fillText(ejeX, xMax/2+despl, i+4);
+        ejeX +=1;
+        ctx.closePath();
     }
-    ctx.closePath();
 
-    //Dibujar lineas verticales
-    ctx.beginPath();
-    for(let i=0;i<anchoMax;i+=20){
-        ctx.moveTo(i,0);
-        ctx.lineTo(i,alturaMax);
-        ctx.strokeStyle = "#b4b9c9";
+    //Lineas Verticales
+    for(let i=0;i<xMax;i+=paso){
+        ctx.beginPath();
+        ctx.moveTo(i, 0);
+        ctx.lineTo(i, yMax);
+        ctx.strokeStyle = "#b9a8a8"
+        ctx.fillText(ejeY, i, yMax/2 - 6);
+        ejeY +=1;
         ctx.stroke();
+        ctx.closePath();
     }
-    ctx.closePath();
 
     //Eje X
     ctx.beginPath();
-    ctx.moveTo(0,alturaMax/2);
-    ctx.lineTo(anchoMax,alturaMax/2);
-    ctx.strokeStyle = "#ff0000";
+    ctx.moveTo(0, yMax/2);
+    ctx.lineTo(xMax, yMax/2);
+    ctx.strokeStyle = "#ab0202"
     ctx.stroke();
     ctx.closePath();
 
     //Eje Y
     ctx.beginPath();
-    ctx.moveTo(anchoMax/2,0);
-    ctx.lineTo(anchoMax/2,alturaMax);
-    ctx.strokeStyle = "#ff0000";
+    ctx.moveTo(xMax/2, 0);
+    ctx.lineTo(xMax/2, yMax);
+    ctx.strokeStyle = "#ab0202"
     ctx.stroke();
     ctx.closePath();
 }
