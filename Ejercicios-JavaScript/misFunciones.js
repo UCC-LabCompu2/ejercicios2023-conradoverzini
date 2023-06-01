@@ -215,6 +215,11 @@ function limpiarCanvas(){
     canvas.width = canvas.width;
 }
 
+
+/**
+ * Dibujar canvas cuadriculado
+ * @method dibujarCuadriculado
+ */
 let dibujarCuadriculado = () => {
     const canvas = document.getElementById("myCanvas");
     const ctx = canvas.getContext("2d");
@@ -258,6 +263,33 @@ let dibujarCuadriculado = () => {
     ctx.strokeStyle = "#ff0000";
     ctx.stroke();
     ctx.closePath();
-
-
 }
+
+let openDialog = () => {
+    const dialog = document.getElementById("myDialog");
+    dialog.showModal();
+}
+
+let closeDialog = () => {
+    const dialog = document.getElementById("myDialog");
+    dialog.close();
+}
+
+let dibujarImagen = (posX, posY) => {
+    const canvas = document.getElementById("myCanvas");
+    const ctx = canvas.getContext("2d");
+
+    canvas.width = canvas.width;
+
+    if(posX<0 || posY<0 ||posX>=canvas.width || posY>=canvas.height){
+        openDialog();
+    }else{
+        let img = new Image();
+        img.src = "images/auto.png";
+
+        img.onload = function () {
+            ctx.drawImage(img, posX, posY);
+        }
+    }
+}
+
