@@ -314,13 +314,13 @@ function animarAuto(){
     const canvas = document.getElementById("myCanvas");
     const ctx = canvas.getContext("2d");
 
-    canvas.width = canvas.width;
-
     const img = new Image();
     img.src = "images/auto.png";
 
     img.onload = function () {
+        canvas.width = canvas.width;
         ctx.drawImage(img,x,100);
+        requestAnimationFrame(animarAuto);
     }
 
     if(x>canvas.width){
@@ -328,9 +328,13 @@ function animarAuto(){
     }
 
     x+=dx;
-
 }
 
+function animarNuevo() {
+    requestAnimationFrame(animarAuto);
+}
+
+/*
 var intervalId;
 let detenerAuto = () => {
     console.log("Se detuvo el auto")
@@ -342,4 +346,6 @@ let comenzarAnimacion = () => {
     intervalId = setInterval(animarAuto, 10);
     setTimeout(detenerAuto, 6000);
 }
+*/
+
 
