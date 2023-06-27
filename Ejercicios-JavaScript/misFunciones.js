@@ -306,6 +306,7 @@ let dibujarImagen = (posX, posY) => {
 
 var x = 0;
 var dx = 2;
+var animationId;
 /**
  * Animar Imagen Auto Canvas
  * @method animarAuto
@@ -320,7 +321,7 @@ function animarAuto(){
     img.onload = function () {
         canvas.width = canvas.width;
         ctx.drawImage(img,x,100);
-        requestAnimationFrame(animarAuto);
+        animationId = requestAnimationFrame(animarAuto);
     }
 
     if(x>canvas.width){
@@ -331,7 +332,12 @@ function animarAuto(){
 }
 
 function animarNuevo() {
+    setTimeout(cancelarAnimacion, 12000);
     requestAnimationFrame(animarAuto);
+}
+
+function cancelarAnimacion(){
+    cancelAnimationFrame(animationId);
 }
 
 /*
