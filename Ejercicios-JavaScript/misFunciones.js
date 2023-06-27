@@ -316,7 +316,7 @@ function animarAuto(){
 
     canvas.width = canvas.width;
 
-    let img = new Image();
+    const img = new Image();
     img.src = "images/auto.png";
 
     img.onload = function () {
@@ -329,5 +329,17 @@ function animarAuto(){
 
     x+=dx;
 
+}
+
+var intervalId;
+let detenerAuto = () => {
+    console.log("Se detuvo el auto")
+    clearInterval(intervalId);
+}
+
+let comenzarAnimacion = () => {
+    console.log("Se llamo a comenzar animacion")
+    intervalId = setInterval(animarAuto, 10);
+    setTimeout(detenerAuto, 6000);
 }
 
